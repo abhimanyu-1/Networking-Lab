@@ -1,16 +1,25 @@
 echo enter a number 
 read a
+prime=1
+
+if (( a<2 ))
+then
+	prime=0
+fi
 
 for (( i=2; i<a; i++ ))
 do
-	r=$(( a%i ))
-
-	if [ $r == 0 ]
+	if (( a % i == 0))
 	then
-		echo "NOT PRIME !"
-		break
-	else
-		echo "PRIME !"
+		prime=0
 		break
 	fi
-done	
+
+done
+
+if (($prime==1))
+then
+	echo "PRIME"
+else
+	echo "NOT PRIME"
+fi
